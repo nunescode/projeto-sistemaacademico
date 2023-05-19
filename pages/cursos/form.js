@@ -10,6 +10,10 @@ const form = () => {
 
     function salvar(dados){
         console.log(dados);
+        
+        const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
+        cursos.push(dados)
+        window.localStorage.setItem('cursos', JSON.stringify(cursos))
     }
 
   return (
@@ -18,17 +22,17 @@ const form = () => {
         <Form>
           <Form.Group className="mb-3" controlId="nome">
             <Form.Label>Nome:</Form.Label>
-            <Form.Control type="text" placeholder="Insira seu nome" {...register('nome')}/>
+            <Form.Control type="text" placeholder="Insira o nome do curso" {...register('nome')}/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="duracao">
             <Form.Label>Duração:</Form.Label>
-            <Form.Control type="text" placeholder="Insira a duração" {...register('duracao')}/>
+            <Form.Control type="text" placeholder="Insira a duração do curso" {...register('duracao')}/>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="modalidade">
             <Form.Label>Modalidade:</Form.Label>
-            <Form.Control type="text" placeholder="Insira a modalidade" {...register('modalidade')}/>
+            <Form.Control type="text" placeholder="Insira a modalidade do curso" {...register('modalidade')}/>
           </Form.Group>
 
           <Button variant="primary" type="submit" onClick={handleSubmit(salvar)}>
