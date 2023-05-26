@@ -1,35 +1,24 @@
 import Pagina from "@/components/Pagina";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+
 import { Button, Table } from "react-bootstrap";
+
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { BsPencilFill } from "react-icons/bs";
 
 const index = () => {
-  const [cursos, setCursos] = useState([]);
+  const [disciplinas, setDisciplinas] = useState([]);
 
   useEffect(() => {
-    setCursos(getAll());
+    
   }, []);
-
-  function getAll() {
-    return JSON.parse(window.localStorage.getItem("cursos")) || [];
-  }
-
-  function excluir(id) {
-    if (confirm("Deseja realmente excluir o registro?")) {
-      const itens = getAll();
-      itens.splice(id, 1);
-      window.localStorage.setItem("cursos", JSON.stringify(itens));
-      setCursos(itens);
-    }
-  }
 
   return (
     <>
-      <Pagina titulo="Cursos">
-        <Link href="/cursos/form" className="btn btn-success">
+      <Pagina titulo="Disciplinas">
+        <Link href="/disciplinas/form" className="btn btn-success">
           <AiFillPlusCircle /> Novo
         </Link>
         <br></br>
@@ -38,17 +27,17 @@ const index = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Cursos</th>
+              <th>Disciplinas</th>
               <th>Duração</th>
               <th>Modalidade</th>
             </tr>
           </thead>
           <tbody>
-            {cursos.map((item, i) => (
+            {disciplinas.map((item, i) => (
               <tr key={i}>
                 <td>
-                  <Link href={'/cursos/' + i}> </Link>
-                  <Button className='btn btn-secondary me-2' href={'/cursos/' + i}><BsPencilFill title="Alterar"/> </Button> 
+                  <Link href={'/disciplinas/' + i}> </Link>
+                  <Button className='btn btn-secondary me-2' href={'/disciplinas/' + i}><BsPencilFill title="Alterar"/> </Button> 
                   <Button className='btn btn-danger'><BiTrash onClick={() => excluir(i)}/> </Button>
                 </td>
                 <td>{item.nome}</td>

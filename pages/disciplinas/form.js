@@ -1,50 +1,49 @@
-import Pagina from "@/components/Pagina";
-import Link from "next/link";
 import React from "react";
-import { Button, Form } from "react-bootstrap";
+import Pagina from "@/components/Pagina";
+
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
+
+import { Button, Form } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import axios from "axios";
+
 const form = () => {
+  
   const { register, handleSubmit } = useForm();
+  const { push } = useRouter();
 
   function salvar(dados) {
     console.log(dados);
-    const cursos = JSON.parse(window.localStorage.getItem("cursos")) || [];
-    cursos.push(dados);
-    window.localStorage.setItem("cursos", JSON.stringify(cursos));
+
+    axios.post('/api/disciplinas', dados)
   }
 
   return (
     <>
-      <Pagina titulo="Formulário">
+      <Pagina titulo="Disciplina">
         <Form>
           <Form.Group className="mb-3" controlId="nome">
             <Form.Label>Nome:</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome do curso"
+              placeholder="Insira o nome da disciplina"
               {...register("nome")}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="duracao">
-            <Form.Label>Duração:</Form.Label>
+          <Form.Group className="mb-3" controlId="curso">
+            <Form.Label>Curso:</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira a duração do curso"
-              {...register("duracao")}
+              placeholder="Insira o nome do curso"
+              {...register("curso")}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="modalidade">
-            <Form.Label>Modalidade:</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Insira a modalidade do curso"
-              {...register("modalidade")}
-            />
-          </Form.Group>
+      
 
           <div>
             <Button
