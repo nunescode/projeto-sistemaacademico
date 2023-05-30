@@ -19,6 +19,7 @@ const form = () => {
     console.log(dados);
 
     axios.post('/api/disciplinas', dados)
+    push('/disciplinas')
   }
 
   return (
@@ -42,8 +43,6 @@ const form = () => {
               {...register("curso")}
             />
           </Form.Group>
-
-      
 
           <div>
             <Button
