@@ -17,7 +17,7 @@ const index = () => {
   }, []);
 
   function getAll(){
-      axios.get('/api/disciplinas').then( resultado => {
+      axios.get('/api/disciplinas').then(resultado => {
         setDisciplinas(resultado.data);
     })
   }
