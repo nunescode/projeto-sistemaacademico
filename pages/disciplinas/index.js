@@ -17,14 +17,16 @@ const index = () => {
   }, []);
 
   function getAll(){
-    axios.get('/api/disciplinas').then( resultado => {
-      setDisciplinas(resultado.data);
+      axios.get('/api/disciplinas').then( resultado => {
+        setDisciplinas(resultado.data);
     })
   }
 
   function excluir(id) {
-    axios.delete('/api/disciplinas/' + id)
-    getAll()
+      if(confirm('Deseja realmente excluir?')) {
+        axios.delete('/api/disciplinas/' + id)
+        getAll()
+    }
   }
 
   return (
@@ -40,8 +42,7 @@ const index = () => {
             <tr>
               <th>#</th>
               <th>Disciplinas</th>
-              <th>Duração</th>
-              <th>Modalidade</th>
+              <th>Curso</th>
             </tr>
           </thead>
           <tbody>
@@ -55,7 +56,6 @@ const index = () => {
                 </td>
                 <td>{item.nome}</td>
                 <td>{item.curso}</td>
-                
               </tr>
             ))}
           </tbody>

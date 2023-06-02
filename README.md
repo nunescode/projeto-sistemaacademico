@@ -1,1 +1,1 @@
-Projeto de Sistema Acadêmico Utilizando NextJs, Firebase
+Projeto de Sistema Acadêmico Utilizando NextJs, Axios e Firebase

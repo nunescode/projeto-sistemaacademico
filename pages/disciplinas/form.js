@@ -17,7 +17,6 @@ const form = () => {
 
   function salvar(dados) {
     console.log(dados);
-
     axios.post('/api/disciplinas', dados)
     push('/disciplinas')
   }
@@ -44,13 +43,13 @@ const form = () => {
             />
           </Form.Group>
 
-          <div>
+          <div className="text-center">
             <Button
-              className="ms-2 btn btn-primary" type="submit" onClick={handleSubmit(salvar)}>
+              className="ms-2 btn btn-success" type="submit" onClick={handleSubmit(salvar)}>
               <BiSend className="me-2" /> Salvar
             </Button>
-            <Link href="/cursos" className="btn btn-primary" type="submit">
-              <BiArrowBack /> Voltar
+            <Link href="/cursos" className="ms-2 btn btn-danger" type="submit">
+              <BiArrowBack className="me-2"/> Voltar
             </Link>
           </div>
         </Form>

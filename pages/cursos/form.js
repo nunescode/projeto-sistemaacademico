@@ -49,9 +49,9 @@ const form = () => {
           <div>
             <Button
               className="ms-2 btn btn-primary" type="submit" onClick={handleSubmit(salvar)}>
-              <BiSend className="me-2" /> Salvar
+              <BiSend className="me-2"/> Salvar
             </Button>
-            <Link href="/cursos" className="btn btn-primary" type="submit">
+            <Link href="/cursos" className="ms-2 btn btn-primary" type="submit">
               <BiArrowBack /> Voltar
             </Link>
           </div>

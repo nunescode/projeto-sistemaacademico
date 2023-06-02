@@ -1,0 +1,54 @@
+.navlink:hover {
+    text-decoration: underline;
+  }
+
+
+  .navlinkhome:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinkcursos:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinkdisciplinas:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinkalunos:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinkprofessores:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinkturmas:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinksalas:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+  
+  .navlinksemestres:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+  }
+
+  .navlink:hover::after {
+    content: '';
+    display: block;
+    height: 10px; /* Altura da linha */
+    background-color: white;
+    margin-top: 5px; /* Espaçamento desejado entre a linha e a seção */
+  }
+
+  
