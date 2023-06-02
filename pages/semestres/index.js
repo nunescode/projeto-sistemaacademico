@@ -11,29 +11,29 @@ import axios from "axios";
 import Link from "next/link";
 
 const index = () => {
-  const [disciplinas, setDisciplinas] = useState([]);
+  const [semestres, setSemestres] = useState([]);
 
   useEffect(() => {
     getAll()
   }, []);
 
   function getAll(){
-      axios.get('/api/disciplinas').then(resultado => {
-        setDisciplinas(resultado.data);
+      axios.get('/api/semestres').then(resultado => {
+        setSemestres(resultado.data);
     })
   }
 
   function excluir(id) {
       if(confirm('Deseja realmente excluir?')) {
-        axios.delete('/api/disciplinas/' + id)
+        axios.delete('/api/semestres/' + id)
         getAll()
     }
   }
 
   return (
     <>
-      <Pagina titulo="Disciplinas">
-        <Link href="/disciplinas/form" className="btn btn-success">
+      <Pagina titulo="Semestres">
+        <Link href="/semestres/form" className="btn btn-success">
           <AiFillPlusCircle /> Novo
         </Link>
         <br></br>
@@ -42,24 +42,26 @@ const index = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Disciplinas</th>
-              <th>Curso</th>
+              <th>Semestres</th>
+              <th>Data início</th>
+              <th>Data fim</th>
             </tr>
           </thead>
           <tbody>
-            {disciplinas.map((item) => (
+            {semestres.map((item) => (
               <tr key={item.id}>
                 <td>
-                  <Link href={'/disciplinas/' + item.id}></Link>
-                  <Button className='btn btn-secondary me-2' href={'/disciplinas/' + item.id}>
+                  <Link href={'/semestres/' + item.id}></Link>
+                  <Button className='btn btn-secondary me-2' href={'/semestres/' + item.id}>
                     <BsPencilFill title="Alterar"/>
                     </Button> 
                   <Button className='btn btn-danger'>
                     <BiTrash onClick={() => excluir(item.id)}/>
-                    </Button>
+                  </Button>
                 </td>
-                <td>{item.nome}</td>
-                <td>{item.curso}</td>
+                <td>{item.semestre}</td>
+                <td>{item.datai}</td>
+                <td>{item.dataf}</td>
               </tr>
             ))}
           </tbody>

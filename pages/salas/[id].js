@@ -3,46 +3,37 @@ import Pagina from "@/components/Pagina";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import Link from "next/link";
+import axios from "axios";
 
 const form = () => {
 
-
   const { push, query } = useRouter()
-  const [ curso, setCurso ] = useState({})
   const { register, handleSubmit, setValue } = useForm()
   
- 
   useEffect(() => {
-    
     if(query.id) {
       
-      const cursos = JSON.parse(window.localStorage.getItem("cursos"))
-      const curso = cursos[query.id]
-      
-      setValue('nome', curso.nome)
-      setValue('duracao', curso.duracao)
-      setValue('modalidade', curso.modalidade)
-
-      for(let atributo in curso){
-        setValue(atributo, curso[atributo])
-      }
-      
+      axios.get('/api/salas/' + query.id).then(resultado => {
+        console.log(resultado.data);
+          
+        const sala = resultado.data
+          
+          for(let atributo in sala) {
+            setValue(atributo, sala[atributo])
+          }
+      })
     }
   }, [query.id]);
 
-
   function salvar(dados) {
-    console.log(dados);
-    const cursos = JSON.parse(window.localStorage.getItem("cursos")) || [];
-    cursos.splice(query.id, 1, dados)
-    window.localStorage.setItem("cursos", JSON.stringify(cursos));
-    push('/cursos')
+    axios.put('/api/salas/' + query.id, dados)
+    push('/salas')
   }
 
   return (
@@ -53,26 +44,26 @@ const form = () => {
             <Form.Label>Nome: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome do curso"
+              placeholder="Insira o nome da sala"
               {...register("nome")}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="duracao">
-            <Form.Label>Duração: </Form.Label>
+          <Form.Group className="mb-3" controlId="capacidade">
+            <Form.Label>Capacidade: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira a duração do curso"
-              {...register("duracao")}
+              placeholder="Insira a capacidade da sala"
+              {...register("capacidade")}
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="modalidade">
-            <Form.Label>Modalidade: </Form.Label>
+          <Form.Group className="mb-3" controlId="tipo">
+            <Form.Label>Tipo: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira a modalidade do curso"
-              {...register("modalidade")}
+              placeholder="Insira o tipo da sala"
+              {...register("tipo")}
             />
           </Form.Group>
 
@@ -83,8 +74,8 @@ const form = () => {
               onClick={handleSubmit(salvar)}>
               <BiSend className="me-2"/> Salvar
             </Button>
-            
-            <Link href="/cursos" className="ms-2 btn btn-danger" type="submit">
+
+            <Link href="/salas" className="ms-2 btn btn-danger" type="submit">
               <BiArrowBack /> Voltar
             </Link>
           </div>

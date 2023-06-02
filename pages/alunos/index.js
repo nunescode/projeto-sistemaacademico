@@ -11,29 +11,29 @@ import axios from "axios";
 import Link from "next/link";
 
 const index = () => {
-  const [disciplinas, setDisciplinas] = useState([]);
+  const [alunos, setAlunos] = useState([]);
 
   useEffect(() => {
     getAll()
   }, []);
 
   function getAll(){
-      axios.get('/api/disciplinas').then(resultado => {
-        setDisciplinas(resultado.data);
+      axios.get('/api/alunos').then(resultado => {
+        setAlunos(resultado.data);
     })
   }
 
   function excluir(id) {
       if(confirm('Deseja realmente excluir?')) {
-        axios.delete('/api/disciplinas/' + id)
+        axios.delete('/api/alunos/' + id)
         getAll()
     }
   }
 
   return (
     <>
-      <Pagina titulo="Disciplinas">
-        <Link href="/disciplinas/form" className="btn btn-success">
+      <Pagina titulo="Alunos">
+        <Link href="/alunos/form" className="btn btn-success">
           <AiFillPlusCircle /> Novo
         </Link>
         <br></br>
@@ -42,24 +42,23 @@ const index = () => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Disciplinas</th>
-              <th>Curso</th>
+              <th>Alunos</th>
+              <th>Matrícula</th>
+              <th>E-mail</th>
             </tr>
           </thead>
           <tbody>
-            {disciplinas.map((item) => (
+            {alunos.map((item) => (
               <tr key={item.id}>
                 <td>
-                  <Link href={'/disciplinas/' + item.id}></Link>
-                  <Button className='btn btn-secondary me-2' href={'/disciplinas/' + item.id}>
-                    <BsPencilFill title="Alterar"/>
-                    </Button> 
-                  <Button className='btn btn-danger'>
-                    <BiTrash onClick={() => excluir(item.id)}/>
-                    </Button>
+                  <Link href={'/alunos/' + item.id}> </Link>
+                  <Button className='btn btn-secondary me-2' href={'/alunos/' + item.id}>
+                    <BsPencilFill title="Alterar"/> </Button> 
+                  <Button className='btn btn-danger'><BiTrash onClick={() => excluir(item.id)}/> </Button>
                 </td>
                 <td>{item.nome}</td>
-                <td>{item.curso}</td>
+                <td>{item.matricula}</td>
+                <td>{item.email}</td>
               </tr>
             ))}
           </tbody>

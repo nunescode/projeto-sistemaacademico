@@ -1,10 +1,14 @@
 import Pagina from "@/components/Pagina";
-import Link from "next/link";
+
 import React, { useEffect, useState } from "react";
+
 import { Button, Table } from "react-bootstrap";
+
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { BsPencilFill } from "react-icons/bs";
+
+import Link from "next/link";
 
 const index = () => {
   const [cursos, setCursos] = useState([]);

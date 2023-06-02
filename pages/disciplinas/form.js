@@ -1,7 +1,6 @@
 import React from "react";
 import Pagina from "@/components/Pagina";
 
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
@@ -9,6 +8,7 @@ import { Button, Form } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import axios from "axios";
+import Link from "next/link";
 
 const form = () => {
   
