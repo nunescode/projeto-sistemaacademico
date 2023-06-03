@@ -9,6 +9,7 @@ import { BsPencilFill } from "react-icons/bs";
 
 import axios from "axios";
 import Link from "next/link";
+import styles from "../../styles/index.module.css"
 
 const index = () => {
   const [semestres, setSemestres] = useState([]);
@@ -34,17 +35,17 @@ const index = () => {
     <>
       <Pagina titulo="Semestres">
         <Link href="/semestres/form" className="btn btn-success">
-          <AiFillPlusCircle /> Novo
+          <AiFillPlusCircle /> Adicionar Semestre
         </Link>
         <br></br>
         <br></br>
-        <Table striped bordered hover>
+        <Table className={styles.tableestilizada} striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
               <th>Semestres</th>
-              <th>Data início</th>
-              <th>Data fim</th>
+              <th>Data de início</th>
+              <th>Data de conclusão</th>
             </tr>
           </thead>
           <tbody>

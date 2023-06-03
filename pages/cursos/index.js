@@ -2,13 +2,14 @@ import Pagina from "@/components/Pagina";
 
 import React, { useEffect, useState } from "react";
 
-import { Button, Table } from "react-bootstrap";
+import { Button, Col, Row, Table } from "react-bootstrap";
 
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { BsPencilFill } from "react-icons/bs";
 
 import Link from "next/link";
+import styles from "../../styles/index.module.css"
 
 const index = () => {
   const [cursos, setCursos] = useState([]);
@@ -34,11 +35,11 @@ const index = () => {
     <>
       <Pagina titulo="Cursos">
         <Link href="/cursos/form" className="btn btn-success">
-          <AiFillPlusCircle /> Novo
+          <AiFillPlusCircle /> Adicionar Curso
         </Link>
         <br></br>
         <br></br>
-        <Table striped bordered hover>
+        <Table className={styles.tableestilizada}striped bordered hover>
           <thead>
             <tr>
               <th>#</th>
@@ -52,8 +53,10 @@ const index = () => {
               <tr key={i}>
                 <td>
                   <Link href={'/cursos/' + i}> </Link>
-                  <Button className='btn btn-secondary me-2' href={'/cursos/' + i}><BsPencilFill title="Alterar"/> </Button> 
-                  <Button className='btn btn-danger'><BiTrash onClick={() => excluir(i)}/> </Button>
+                  <Button className='btn btn-secondary me-2' href={'/cursos/' + i}>
+                    <BsPencilFill title="Alterar"/>
+                    </Button> 
+                  <Button className='btn btn-danger'><BiTrash onClick={() => excluir(i)}/></Button>
                 </td>
                 <td>{item.nome}</td>
                 <td>{item.duracao}</td>

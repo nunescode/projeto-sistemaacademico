@@ -1,7 +1,7 @@
 import Pagina from "@/components/Pagina";
 import React from "react";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";

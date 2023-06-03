@@ -1,54 +1,28 @@
-.navlink:hover {
-    text-decoration: underline;
-  }
+.navbar {
+  height: 50px;
+  line-height: 50px;
+  background-color: red;
+}
 
+.navbarbrand {
+  color: white;
+  border-bottom: 2px solid transparent;
+}
 
-  .navlinkhome:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinkcursos:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinkdisciplinas:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinkalunos:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinkprofessores:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinkturmas:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinksalas:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
-  
-  .navlinksemestres:hover {
-    text-decoration: underline;
-    text-decoration-color: white;
-  }
+.navbarbrand:hover {
+  border-color: white;
+}
 
-  .navlink:hover::after {
-    content: '';
-    display: block;
-    height: 10px; /* Altura da linha */
-    background-color: white;
-    margin-top: 5px; /* Espaçamento desejado entre a linha e a seção */
-  }
+.navbar .navbarbrand:hover {
+  border-color: white;
+}
 
-  
+.navbar .navlink {
+  color: white;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .navlink:hover {
+  color: lightsteelblue;
+}

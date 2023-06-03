@@ -7,17 +7,16 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Cabecalho = () => {
   return (
     <>
-      <Navbar bg="danger" variant="dark">
+      <Navbar className={`${styles.navbar} ${styles.navbarbrand}`} variant="dark">
         <Container>
           <Navbar.Brand href="/cursos">Pagina Inicial</Navbar.Brand>
           <Nav className='me-auto'>
-            <Nav.Link className={styles.navlinkcursos} href="/cursos">Cursos</Nav.Link>
-            <Nav.Link className={styles.navlinkdisciplinas} href="/disciplinas">Disciplinas</Nav.Link>
-            <Nav.Link className={styles.navlinkalunos} href="/alunos">Alunos</Nav.Link>
-            <Nav.Link className={styles.navlinkprofessores} href="/professores">Professores</Nav.Link>
-            <Nav.Link className={styles.navlinkturmas} href="/turmas">Turmas</Nav.Link>
-            <Nav.Link className={styles.navlinksalas} href="/salas">Salas</Nav.Link>
-            <Nav.Link className={styles.navlinksemestres} href="/semestres">Semestres</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/cursos">Cursos</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/disciplinas">Disciplinas</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/alunos">Alunos</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/professores">Professores</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/salas">Salas</Nav.Link>
+            <Nav.Link className={styles.navlink} href="/semestres">Semestres</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -29,7 +29,7 @@ const form = () => {
             <Form.Label>Semestre: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o período"
+              placeholder="Insira o período:"
               {...register("semestre", {required: true})}
             />
             {errors.semestre && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
@@ -39,17 +39,17 @@ const form = () => {
             <Form.Label>Data de Início: </Form.Label>
             <Form.Control
               type="date"
-              placeholder="Insira a data de início"
+              placeholder="Insira a data de início:"
               {...register("datai", {required: true})}
             />
             {errors.datai && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="dataf">
-            <Form.Label>Data do Fim: </Form.Label>
+            <Form.Label>Data de conclusão: </Form.Label>
             <Form.Control
               type="date"
-              placeholder="Insira a data do fim"
+              placeholder="Insira a data de conclusão:"
               {...register("dataf", {required: true})}
             />
             {errors.dataf && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}

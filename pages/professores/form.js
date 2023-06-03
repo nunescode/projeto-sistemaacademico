@@ -4,7 +4,7 @@ import Pagina from "@/components/Pagina";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
-import { Button, Form} from "react-bootstrap";
+import { Button, Col, Form, Row} from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import Link from "next/link";
@@ -24,13 +24,16 @@ const form = () => {
     <>
       <Pagina titulo="Professor">
         <Form>
+          <Row>
+            <Col>
+            
           <Form.Group className="mb-3" controlId="nome">
             <Form.Label>Nome:</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome"
+              placeholder="Insira o nome:"
               {...register("nome", {required: true})}
-            />
+              />
             {errors.nome && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
@@ -38,9 +41,9 @@ const form = () => {
             <Form.Label>CPF: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o CPF"
+              placeholder="Insira o CPF:"
               {...register("cpf", {required: true})}
-            />
+              />
             {errors.cpf && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
@@ -48,81 +51,84 @@ const form = () => {
             <Form.Label>Matrícula: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira a matrícula"
+              placeholder="Insira a matrícula:"
               {...register("matricula")}
-            />
+              />
           </Form.Group>
 
+            
           <Form.Group className="mb-3" controlId="salario">
             <Form.Label>Salário: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o salário"
+              placeholder="Insira o salário:"
               {...register("salario")}
-            />
+              />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>E-mail: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o e-mail"
+              placeholder="Insira o e-mail:"
               {...register("email")}
-            />
+              />
           </Form.Group>
-
+          </Col>
+          <Col>
           <Form.Group className="mb-3" controlId="telefone">
             <Form.Label>Telefone: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o telefone"
+              placeholder="Insira o telefone:"
               {...register("telefone")}
-            />
+              />
           </Form.Group>
           <Form.Group className="mb-3" controlId="cep">
             <Form.Label>CEP: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o CEP"
+              placeholder="Insira o CEP:"
               {...register("cep")}
-            />
+              />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="logradouro">
             <Form.Label>Logradouro: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o logradouro"
+              placeholder="Insira o logradouro:"
               {...register("logradouro")}
-            />
+              />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="complemento">
             <Form.Label>Complemento: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o complemento"
+              placeholder="Insira o complemento:"
               {...register("complemento")}
-            />
+              />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="numero">
             <Form.Label>Número: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o número"
+              placeholder="Insira o número:"
               {...register("numero")}
-            />
+              />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="bairro">
             <Form.Label>Bairro: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o bairro"
+              placeholder="Insira o bairro:"
               {...register("bairro")}
-            />
+              />
           </Form.Group>
+          </Col>
 
           <div className="text-center">
             <Button
@@ -133,6 +139,7 @@ const form = () => {
               <BiArrowBack className="me-2"/> Voltar
             </Link>
           </div>
+          </Row>
         </Form>
     </Pagina>
     </>

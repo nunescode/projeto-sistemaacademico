@@ -29,7 +29,7 @@ const form = () => {
             <Form.Label>Nome: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome da sala"
+              placeholder="Insira o nome da sala:"
               {...register("nome", {required: true})}
             />
             {errors.nome && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
@@ -39,7 +39,7 @@ const form = () => {
             <Form.Label>Capacidade: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira a capacidade da sala"
+              placeholder="Insira a capacidade da sala:"
               {...register("capacidade")}
             />
           </Form.Group>
@@ -48,7 +48,7 @@ const form = () => {
             <Form.Label>Tipo: </Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o tipo da sala"
+              placeholder="Insira o tipo da sala:"
               {...register("tipo", {required: true})}
             />
             {errors.tipo && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}

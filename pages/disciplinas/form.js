@@ -29,7 +29,7 @@ const form = () => {
             <Form.Label>Nome:</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome da disciplina"
+              placeholder="Insira o nome da disciplina:"
               {...register("nome")}
             />
           </Form.Group>
@@ -38,7 +38,7 @@ const form = () => {
             <Form.Label>Curso:</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Insira o nome do curso"
+              placeholder="Insira o nome do curso:"
               {...register("curso")}
             />
           </Form.Group>
