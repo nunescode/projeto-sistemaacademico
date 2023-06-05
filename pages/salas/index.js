@@ -36,7 +36,7 @@ const index = () => {
     <div className={styles.cover}>
       <Pagina titulo="Salas">
         <Link href="/salas/form" className="btn btn-success">
-          <AiFillPlusCircle /> Adiocionar Sala
+          <AiFillPlusCircle /> Adicionar Sala
         </Link>
         <br></br>
         <br></br>

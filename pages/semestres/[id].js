@@ -8,6 +8,7 @@ import { Button, Form } from "react-bootstrap";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import styles from "../../styles/index.module.css"
 import Link from "next/link";
 import axios from "axios";
 
@@ -38,10 +39,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Formulário">
         <Form>
-          <Form.Group className="mb-3" controlId="semestre">
-            <Form.Label>Semestre: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="semestre">
+            <Form.Label><strong>Semestre: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o período"
@@ -49,8 +51,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="datai">
-            <Form.Label>Data de Início: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="datai">
+            <Form.Label><strong>Data de Início: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a data de início"
@@ -58,8 +60,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="dataf">
-            <Form.Label>Data do Fim: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="dataf">
+            <Form.Label><strong>Data do Fim: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a data do fim"
@@ -82,6 +84,7 @@ const form = () => {
 
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

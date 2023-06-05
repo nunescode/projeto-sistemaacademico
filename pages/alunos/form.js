@@ -4,9 +4,10 @@ import Pagina from "@/components/Pagina";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
-import { Button, Form } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import styles from "../../styles/index.module.css"
 import axios from "axios";
 import Link from "next/link";
 
@@ -23,10 +24,13 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Disciplina">
         <Form>
-          <Form.Group className="mb-3" controlId="nome">
-            <Form.Label>Nome: </Form.Label>
+          <Row>
+            <Col>
+          <Form.Group className="mb-3 text-white" controlId="nome">
+            <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome da disciplina"
@@ -34,8 +38,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="cpf">
-            <Form.Label>CPF: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="cpf">
+            <Form.Label><strong>CPF: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o CPF"
@@ -43,8 +47,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="matricula">
-            <Form.Label>Matrícula: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="matricula">
+            <Form.Label><strong>Matrícula: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a matrícula"
@@ -52,8 +56,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="email">
-            <Form.Label>E-mail: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="email">
+            <Form.Label><strong>E-mail: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o e-mail"
@@ -61,16 +65,18 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="telefone">
-            <Form.Label>Telefone: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="telefone">
+            <Form.Label><strong>Telefone: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o telefone"
               {...register("telefone")}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="cep">
-            <Form.Label>CEP: </Form.Label>
+          </Col>
+          <Col>
+          <Form.Group className="mb-3 text-white" controlId="cep">
+            <Form.Label><strong>CEP: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o CEP"
@@ -78,8 +84,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="logradouro">
-            <Form.Label>Logradouro: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="logradouro">
+            <Form.Label><strong>Logradouro: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o logradouro"
@@ -87,8 +93,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="complemento">
-            <Form.Label>Complemento: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="complemento">
+            <Form.Label><strong>Complemento: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o complemento"
@@ -96,36 +102,39 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="numero">
-            <Form.Label>Número: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="numero">
+            <Form.Label><strong>Número: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o número"
               {...register("numero")}
-            />
+              />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="bairro">
-            <Form.Label>Bairro: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="bairro">
+            <Form.Label><strong>Bairro: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o bairro"
               {...register("bairro")}
-            />
+              />
           </Form.Group>
 
+              </Col>
           <div className="text-center">
             <Button
               className="ms-2 btn btn-success" type="submit" onClick={handleSubmit(salvar)}>
               <BiSend className="me-2" /> Salvar
             </Button>
-            <Link href="/cursos" className="ms-2 btn btn-danger" type="submit">
+            <Link href="/alunos" className="ms-2 btn btn-danger" type="submit">
               <BiArrowBack className="me-2"/> Voltar
             </Link>
           </div>
           
+          </Row>
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

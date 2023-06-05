@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import styles from "../../styles/index.module.css"
 import axios from "axios";
 import Link from "next/link";
 
@@ -23,10 +24,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Disciplina">
         <Form>
-          <Form.Group className="mb-3" controlId="nome">
-            <Form.Label>Nome:</Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="nome">
+            <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome da disciplina:"
@@ -34,8 +36,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="curso">
-            <Form.Label>Curso:</Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="curso">
+            <Form.Label><strong>Curso: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome do curso:"
@@ -48,12 +50,13 @@ const form = () => {
               className="ms-2 btn btn-success" type="submit" onClick={handleSubmit(salvar)}>
               <BiSend className="me-2" /> Salvar
             </Button>
-            <Link href="/cursos" className="ms-2 btn btn-danger" type="submit">
+            <Link href="/disciplinas" className="ms-2 btn btn-danger" type="submit">
               <BiArrowBack className="me-2"/> Voltar
             </Link>
           </div>
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

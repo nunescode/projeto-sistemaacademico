@@ -24,7 +24,7 @@ const form = () => {
     <div className={styles.cover}>
       <Pagina titulo="Formulário">
         <Form className='text-white'>
-          <Form.Group className="mb-3" controlId="nome">
+          <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Nome:</strong></Form.Label>
             <Form.Control
               type="text"
@@ -34,7 +34,7 @@ const form = () => {
             {errors.nome && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="duracao">
+          <Form.Group className="mb-3 text-white" controlId="duracao">
             <Form.Label><strong>Duração:</strong></Form.Label>
             <Form.Control
               type="text"
@@ -43,7 +43,7 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="modalidade">
+          <Form.Group className="mb-3 text-white" controlId="modalidade">
             <Form.Label><strong>Modalidade:</strong></Form.Label>
             <Form.Control
               type="text"

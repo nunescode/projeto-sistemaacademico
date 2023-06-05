@@ -8,6 +8,7 @@ import { Button, Form } from "react-bootstrap";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import styles from "../../styles/index.module.css"
 import Link from "next/link";
 import axios from "axios";
 
@@ -38,10 +39,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Formulário">
         <Form>
-          <Form.Group className="mb-3" controlId="nome">
-            <Form.Label>Nome: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="nome">
+            <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome da sala"
@@ -49,8 +51,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="capacidade">
-            <Form.Label>Capacidade: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="capacidade">
+            <Form.Label><strong>Capacidade: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a capacidade da sala"
@@ -58,8 +60,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="tipo">
-            <Form.Label>Tipo: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="tipo">
+            <Form.Label><strong>Tipo: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o tipo da sala"
@@ -74,14 +76,13 @@ const form = () => {
               onClick={handleSubmit(salvar)}>
               <BiSend className="me-2"/> Salvar
             </Button>
-
             <Link href="/salas" className="ms-2 btn btn-danger" type="submit">
               <BiArrowBack /> Voltar
             </Link>
           </div>
-
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

@@ -9,6 +9,7 @@ import { Button, Form } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import Link from "next/link";
+import styles from "../../styles/index.module.css"
 
 const form = () => {
 
@@ -47,10 +48,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Formulário">
         <Form>
-          <Form.Group className="mb-3" controlId="nome">
-            <Form.Label>Nome: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="nome">
+            <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome do curso"
@@ -58,8 +60,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="duracao">
-            <Form.Label>Duração: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="duracao">
+            <Form.Label><strong>Duração: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a duração do curso"
@@ -67,8 +69,8 @@ const form = () => {
             />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="modalidade">
-            <Form.Label>Modalidade: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="modalidade">
+            <Form.Label><strong>Modalidade: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a modalidade do curso"
@@ -91,6 +93,7 @@ const form = () => {
 
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Button, Form } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
+import styles from "../../styles/index.module.css"
 import axios from "axios";
 import Link from "next/link";
 
@@ -23,10 +24,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Semestres">
         <Form>
-          <Form.Group className="mb-3" controlId="semestre">
-            <Form.Label>Semestre: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="semestre">
+            <Form.Label><strong>Semestre: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o período:"
@@ -35,8 +37,8 @@ const form = () => {
             {errors.semestre && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="datai">
-            <Form.Label>Data de Início: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="datai">
+            <Form.Label><strong>Data de Início: </strong></Form.Label>
             <Form.Control
               type="date"
               placeholder="Insira a data de início:"
@@ -45,8 +47,8 @@ const form = () => {
             {errors.datai && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="dataf">
-            <Form.Label>Data de conclusão: </Form.Label>
+          <Form.Group className="mb-3 text-white" controlId="dataf">
+            <Form.Label><strong>Data de conclusão: </strong></Form.Label>
             <Form.Control
               type="date"
               placeholder="Insira a data de conclusão:"
@@ -67,6 +69,7 @@ const form = () => {
 
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };
