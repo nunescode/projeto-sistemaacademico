@@ -1,12 +1,13 @@
 import Pagina from "@/components/Pagina";
 import React from "react";
 
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import Link from "next/link";
+import styles from '../../styles/index.module.css'
 
 const form = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -20,10 +21,11 @@ const form = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Formulário">
-        <Form>
+        <Form className='text-white'>
           <Form.Group className="mb-3" controlId="nome">
-            <Form.Label>Nome:</Form.Label>
+            <Form.Label><strong>Nome:</strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o nome do curso"
@@ -33,7 +35,7 @@ const form = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="duracao">
-            <Form.Label>Duração:</Form.Label>
+            <Form.Label><strong>Duração:</strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a duração do curso"
@@ -42,26 +44,27 @@ const form = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="modalidade">
-            <Form.Label>Modalidade:</Form.Label>
+            <Form.Label><strong>Modalidade:</strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira a modalidade do curso"
               {...register("modalidade", {required: true})}
-            />
+              />
             {errors.modalidade && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
           </Form.Group>
 
           <div className="text-center">
             <Button
               className="ms-2 btn btn-success" type="submit" onClick={handleSubmit(salvar)}>
-              <BiSend className="me-2"/> Salvar
+              <BiSend className="me-2"/> <strong>Salvar</strong>
             </Button>
             <Link href="/cursos" className="ms-2 btn btn-danger" type="submit">
-              <BiArrowBack /> Voltar
+              <BiArrowBack /> <strong>Voltar</strong>
             </Link>
           </div>
         </Form>
       </Pagina>
+    </div>
     </>
   );
 };

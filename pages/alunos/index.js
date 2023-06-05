@@ -33,6 +33,7 @@ const index = () => {
 
   return (
     <>
+    <div className={styles.cover}>      
       <Pagina titulo="Alunos">
         <Link href="/alunos/form" className="btn btn-success">
           <AiFillPlusCircle /> Adicionar Aluno
@@ -65,6 +66,7 @@ const index = () => {
           </tbody>
         </Table>
       </Pagina>
+    </div>
     </>
   );
 };

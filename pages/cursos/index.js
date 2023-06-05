@@ -2,7 +2,7 @@ import Pagina from "@/components/Pagina";
 
 import React, { useEffect, useState } from "react";
 
-import { Button, Col, Row, Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 
 import { AiFillPlusCircle } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
@@ -33,13 +33,14 @@ const index = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Cursos">
         <Link href="/cursos/form" className="btn btn-success">
           <AiFillPlusCircle /> Adicionar Curso
         </Link>
         <br></br>
         <br></br>
-        <Table className={styles.tableestilizada}striped bordered hover>
+        <Table className={styles.tableestilizada}>
           <thead>
             <tr>
               <th>#</th>
@@ -66,6 +67,7 @@ const index = () => {
           </tbody>
         </Table>
       </Pagina>
+    </div>
     </>
   );
 };

@@ -2,13 +2,17 @@ import React from "react";
 import Cabecalho from "./Cabecalho";
 import { Container } from "react-bootstrap";
 
+import styles from '../styles/Pagina.module.css'
+
 const Pagina = (props) => {
   return (
     <>
       <Cabecalho />
-      <div className="bg-secondary text-white py-1 text-center margin-bottom mb-3">
-        <h3>{props.titulo}</h3>
+      <div className={styles.pagina}>
+        <h3 className={styles.titulo}>{props.titulo}</h3>
       </div>
+      <br></br>
+
       <Container>{props.children}</Container>
       <Container />
     </>

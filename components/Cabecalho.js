@@ -16,15 +16,15 @@ const Cabecalho = () => {
           <Image className={styles.logo} src='https://infoenem.com.br/wp-content/uploads/2016/12/iesb.jpg'></Image>
           <Navbar.Brand href="/cursos">Pagina Inicial</Navbar.Brand>
           </div>
-          <div className="ms-auto">
-          <Nav>
+          <div className="m-auto">
+          <Nav className="text-center">
             <Nav.Link className={styles.navlink} href="/cursos">Cursos</Nav.Link>
             <Nav.Link className={styles.navlink} href="/disciplinas">Disciplinas</Nav.Link>
             <Nav.Link className={styles.navlink} href="/alunos">Alunos</Nav.Link>
             <Nav.Link className={styles.navlink} href="/professores">Professores</Nav.Link>
             <Nav.Link className={styles.navlink} href="/salas">Salas</Nav.Link>
             <Nav.Link className={styles.navlink} href="/semestres">Semestres</Nav.Link>
-              <Link href="/perfil" className="text-white ml-auto">
+              <Link href="/perfil" className={styles.link}>
                 <CgProfile className={styles.prof}/>
               </Link>
             </Nav>

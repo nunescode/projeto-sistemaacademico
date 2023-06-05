@@ -216,8 +216,9 @@ const index = () => {
 
   return (
     <>
+    <div className={styles.cover}>
       <Pagina titulo="Monitores">
-        <Table className={styles.tableestilizada} striped bordered hover>
+        <Table className={styles.tableestilizada}>
           <thead>
             <tr>
               <th>Monitor</th>
@@ -238,6 +239,7 @@ const index = () => {
           </tbody>
         </Table>
       </Pagina>
+      </div>
     </>
   );
 };
