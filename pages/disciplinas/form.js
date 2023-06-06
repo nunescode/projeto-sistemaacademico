@@ -11,9 +11,11 @@ import styles from "../../styles/index.module.css"
 import axios from "axios";
 import Link from "next/link";
 
+import disciplinaValidator from "@/validators/disciplinaValidator";
+
 const form = () => {
   
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const { push } = useRouter();
 
   function salvar(dados) {
@@ -30,19 +32,23 @@ const form = () => {
           <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.nome}
               type="text"
               placeholder="Insira o nome da disciplina:"
-              {...register("nome")}
+              {...register("nome", disciplinaValidator.nome)}
             />
+            {errors.nome && <span className="error-message bg-primary text-white">{errors.nome.message}</span>}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="curso">
             <Form.Label><strong>Curso: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.curso}
               type="text"
               placeholder="Insira o nome do curso:"
-              {...register("curso")}
+              {...register("curso", disciplinaValidator.curso)}
             />
+            {errors.curso && <span className="error-message bg-primary text-white">{errors.curso.message}</span>}
           </Form.Group>
 
           <div className="text-center">
