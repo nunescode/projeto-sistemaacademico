@@ -11,7 +11,7 @@ const Cabecalho = () => {
   return (
     <>
       <Navbar className={`${styles.navbar} ${styles.navbarbrand}`} variant="dark">
-        <Container className="d-flex justify-content-between align-items-center">
+        <Container>
           <div>
           <Image className={styles.logo} src='https://infoenem.com.br/wp-content/uploads/2016/12/iesb.jpg'></Image>
           <Navbar.Brand href="/cursos">Pagina Inicial</Navbar.Brand>
