@@ -28,7 +28,7 @@ const form = () => {
       <Pagina titulo="Formulário">
         <Form className='text-white'>
           <Form.Group className="mb-3 text-white" controlId="nome">
-            <Form.Label><strong>Nome:</strong></Form.Label>
+            <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
               isInvalid={errors.nome}
               type="text"

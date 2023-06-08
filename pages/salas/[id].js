@@ -1,21 +1,23 @@
+import React, { useEffect } from "react";
+
 import Pagina from "@/components/Pagina";
+import salaValidator from "@/validators/salaValidator";
+import styles from "../../styles/index.module.css"
 
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
-import React, { useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
-import styles from "../../styles/index.module.css"
 import Link from "next/link";
 import axios from "axios";
 
 const form = () => {
 
   const { push, query } = useRouter()
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
   
   useEffect(() => {
     if(query.id) {
@@ -45,28 +47,46 @@ const form = () => {
           <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.nome}
               type="text"
               placeholder="Insira o nome da sala"
-              {...register("nome")}
+              {...register("nome", salaValidator.nome)}
             />
+            {errors.nome && (
+                <span className="error-message bg-danger text-white">
+                  {errors.nome.message}
+                </span>
+              )}
           </Form.Group>
-
+          
           <Form.Group className="mb-3 text-white" controlId="capacidade">
             <Form.Label><strong>Capacidade: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.capacidade}
               type="text"
               placeholder="Insira a capacidade da sala"
-              {...register("capacidade")}
+              {...register("capacidade", salaValidator.capacidade)}
             />
+            {errors.capacidade && (
+                <span className="error-message bg-danger text-white">
+                  {errors.capacidade.message}
+                </span>
+              )}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="tipo">
             <Form.Label><strong>Tipo: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.tipo}
               type="text"
               placeholder="Insira o tipo da sala"
-              {...register("tipo")}
+              {...register("tipo", salaValidator.tipo)}
             />
+            {errors.tipo && (
+                <span className="error-message bg-danger text-white">
+                  {errors.tipo.message}
+                </span>
+              )}
           </Form.Group>
 
           <div className="text-center">

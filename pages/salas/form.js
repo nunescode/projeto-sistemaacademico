@@ -1,5 +1,6 @@
 import React from "react";
 import Pagina from "@/components/Pagina";
+import salaValidator from "@/validators/salaValidator";
 
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -35,13 +36,14 @@ const form = () => {
                 <strong>Nome: </strong>
               </Form.Label>
               <Form.Control
+                isInvalid={errors.nome}
                 type="text"
                 placeholder="Insira o nome da sala:"
-                {...register("nome", { required: true })}
+                {...register("nome", salaValidator.nome)}
               />
               {errors.nome && (
-                <span className="error-message bg-danger text-white">
-                  Campo obrigatório!
+                <span className="error-message bg-primary text-white">
+                  {errors.nome.message}
                 </span>
               )}
             </Form.Group>
@@ -51,10 +53,16 @@ const form = () => {
                 <strong>Capacidade: </strong>
               </Form.Label>
               <Form.Control
+                isInvalid={errors.capacidade}
                 type="text"
                 placeholder="Insira a capacidade da sala:"
-                {...register("capacidade")}
+                {...register("capacidade", salaValidator.capacidade)}
               />
+              {errors.capacidade && (
+                <span className="error-message bg-primary text-white">
+                  {errors.capacidade.message}
+                </span>
+              )}
             </Form.Group>
 
             <Form.Group className="mb-3 text-white" controlId="tipo">
@@ -62,13 +70,14 @@ const form = () => {
                 <strong>Tipo: </strong>
               </Form.Label>
               <Form.Control
+                isInvalid={errors.tipo}
                 type="text"
                 placeholder="Insira o tipo da sala:"
-                {...register("tipo", { required: true })}
+                {...register("tipo", salaValidator.tipo)}
               />
               {errors.tipo && (
-                <span className="error-message bg-danger text-white">
-                  Campo obrigatório!
+                <span className="error-message bg-primary text-white">
+                  {errors.tipo.message}
                 </span>
               )}
             </Form.Group>

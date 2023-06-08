@@ -10,13 +10,13 @@ import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import Link from "next/link";
 import styles from "../../styles/index.module.css"
+import cursoValidator from "@/validators/cursoValidator";
 
 const form = () => {
 
-
   const { push, query } = useRouter()
   const [ curso, setCurso ] = useState({})
-  const { register, handleSubmit, setValue } = useForm()
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm()
   
  
   useEffect(() => {
@@ -37,7 +37,6 @@ const form = () => {
     }
   }, [query.id]);
 
-
   function salvar(dados) {
     console.log(dados);
     const cursos = JSON.parse(window.localStorage.getItem("cursos")) || [];
@@ -54,28 +53,46 @@ const form = () => {
           <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.nome}
               type="text"
               placeholder="Insira o nome do curso"
-              {...register("nome")}
+              {...register("nome", cursoValidator.nome)}
             />
+            {errors.nome && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.nome.message}
+                    </span>
+                  )}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="duracao">
             <Form.Label><strong>Duração: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.duracao}
               type="text"
-              placeholder="Insira a duração do curso"
-              {...register("duracao")}
+              placeholder="Insira a duração do curso:"
+              {...register("duracao", cursoValidator.duracao)}
             />
+            {errors.duracao && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.duracao.message}
+                    </span>
+                  )}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="modalidade">
             <Form.Label><strong>Modalidade: </strong></Form.Label>
             <Form.Control
+              isInvalid={errors.modalidade}
               type="text"
               placeholder="Insira a modalidade do curso"
-              {...register("modalidade")}
+              {...register("modalidade", cursoValidator.modalidade)}
             />
+            {errors.modalidade && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.modalidade.message}
+                    </span>
+                  )}
           </Form.Group>
 
           <div className="text-center">

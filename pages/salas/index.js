@@ -1,5 +1,7 @@
-import Pagina from "@/components/Pagina";
 import React, { useEffect, useState } from "react";
+
+import Pagina from "@/components/Pagina";
+import styles from "../../styles/index.module.css"
 
 import { Button, Table } from "react-bootstrap";
 
@@ -9,7 +11,6 @@ import { BsPencilFill } from "react-icons/bs";
 
 import axios from "axios";
 import Link from "next/link";
-import styles from "../../styles/index.module.css"
 
 const index = () => {
   const [salas, setSalas] = useState([]);

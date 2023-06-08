@@ -1,16 +1,21 @@
+import React, { useEffect } from "react";
+
 import Pagina from "@/components/Pagina";
+import professorValidator from "@/validators/professorValidator";
+import styles from "../../styles/index.module.css";
+
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
-import React, { useEffect } from "react";
+
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
-import styles from "../../styles/index.module.css";
+
 import axios from "axios";
 import Link from "next/link";
 
 const form = () => {
   const { push, query } = useRouter();
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
   useEffect(() => {
     if (query.id) {
@@ -43,10 +48,16 @@ const form = () => {
                     <strong>Nome: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.nome}
                     type="text"
                     placeholder="Insira o nome do professor"
-                    {...register("nome")}
+                    {...register("nome", professorValidator.nome)}
                   />
+                  {errors.nome && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.nome.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="cpf">
@@ -54,10 +65,16 @@ const form = () => {
                     <strong>CPF: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.cpf}
                     type="text"
                     placeholder="Insira o CPF"
-                    {...register("cpf")}
+                    {...register("cpf", professorValidator.cpf)}
                   />
+                  {errors.cpf && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.cpf.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="matricula">
@@ -65,9 +82,10 @@ const form = () => {
                     <strong>Matrícula: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.matricula}
                     type="text"
                     placeholder="Insira a matrícula"
-                    {...register("matricula")}
+                    {...register("matricula", professorValidator.matricula)}
                   />
                 </Form.Group>
 
@@ -76,20 +94,32 @@ const form = () => {
                     <strong>Salário: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.salario}
                     type="text"
                     placeholder="Insira o salário"
-                    {...register("salario")}
+                    {...register("salario", professorValidator.salario)}
                   />
+                  {errors.salario && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.salario.message}
+                    </span>
+                  )}
                 </Form.Group>
                 <Form.Group className="mb-3 text-white" controlId="email">
                   <Form.Label>
                     <strong>E-mail: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.email}
                     type="text"
                     placeholder="Insira o e-mail"
-                    {...register("email")}
+                    {...register("email", professorValidator.email)}
                   />
+                  {errors.email && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.email.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="telefone">
@@ -97,10 +127,16 @@ const form = () => {
                     <strong>Telefone: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.telefone}
                     type="text"
                     placeholder="Insira o telefone"
-                    {...register("telefone")}
+                    {...register("telefone", professorValidator.telefone)}
                   />
+                  {errors.telefone && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.telefone.message}
+                    </span>
+                  )}
                 </Form.Group>
               </Col>
               <Col>
@@ -109,10 +145,16 @@ const form = () => {
                     <strong>CEP: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.cep}
                     type="text"
                     placeholder="Insira o CEP"
-                    {...register("cep")}
+                    {...register("cep", professorValidator.cep)}
                   />
+                  {errors.cep && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.cep.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="logradouro">
@@ -120,9 +162,10 @@ const form = () => {
                     <strong>Logradouro: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.logradouro}
                     type="text"
                     placeholder="Insira o logradouro"
-                    {...register("logradouro")}
+                    {...register("logradouro", professorValidator.logradouro)}
                   />
                 </Form.Group>
 
@@ -131,9 +174,10 @@ const form = () => {
                     <strong>Complemento: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.complemento}
                     type="text"
                     placeholder="Insira o complemento"
-                    {...register("complemento")}
+                    {...register("complemento", professorValidator.complemento)}
                   />
                 </Form.Group>
 
@@ -142,10 +186,16 @@ const form = () => {
                     <strong>Número: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.numero}
                     type="text"
                     placeholder="Insira o número"
-                    {...register("numero")}
+                    {...register("numero", professorValidator.numero)}
                   />
+                  {errors.numero && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.numero.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="bairro">
@@ -153,10 +203,16 @@ const form = () => {
                     <strong>Bairro: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.bairro}
                     type="text"
                     placeholder="Insira o bairro"
-                    {...register("bairro")}
+                    {...register("bairro", professorValidator.bairro)}
                   />
+                  {errors.bairro && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.bairro.message}
+                    </span>
+                  )}
                 </Form.Group>
                 <div className="text-center">
                   <Button

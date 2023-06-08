@@ -144,7 +144,7 @@ const form = () => {
                     isInvalid={errors.logradouro}
                     type="text"
                     placeholder="Insira o logradouro:"
-                    {...register("logradouro", professorValidator.logradouro)}
+                    {...register("logradouro", alunoValidator.logradouro)}
                   />
                   {errors.logradouro && (
                     <span className="error-message bg-primary text-white">
@@ -161,7 +161,7 @@ const form = () => {
                     isInvalid={errors.complemento}
                     type="text"
                     placeholder="Insira o complemento:"
-                    {...register("complemento", professorValidator.complemento)}
+                    {...register("complemento", alunoValidator.complemento)}
                   />
                   {errors.complemento && (
                     <span className="error-message bg-primary text-white">
@@ -178,7 +178,7 @@ const form = () => {
                     isInvalid={errors.numero}
                     type="text"
                     placeholder="Insira o número:"
-                    {...register("numero", professorValidator.numero)}
+                    {...register("numero", alunoValidator.numero)}
                   />
                   {errors.numero && (
                     <span className="error-message bg-primary text-white">
@@ -195,7 +195,7 @@ const form = () => {
                     isInvalid={errors.bairro}
                     type="text"
                     placeholder="Insira o bairro:"
-                    {...register("bairro", professorValidator.bairro)}
+                    {...register("bairro", alunoValidator.bairro)}
                   />
                   {errors.bairro && (
                     <span className="error-message bg-primary text-white">

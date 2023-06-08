@@ -11,10 +11,11 @@ import { BiSend, BiArrowBack } from "react-icons/bi";
 import styles from "../../styles/index.module.css";
 import Link from "next/link";
 import axios from "axios";
+import alunoValidator from "@/validators/alunoValidator";
 
 const form = () => {
   const { push, query } = useRouter();
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
   useEffect(() => {
     if (query.id) {
@@ -47,10 +48,16 @@ const form = () => {
                     <strong>Nome: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.nome}
                     type="text"
                     placeholder="Insira o nome do curso"
-                    {...register("nome")}
+                    {...register("nome", alunoValidator.nome)}
                   />
+                  {errors.nome && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.nome.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="cpf">
@@ -58,10 +65,16 @@ const form = () => {
                     <strong>CPF: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.cpf}
                     type="text"
                     placeholder="Insira o CPF"
-                    {...register("cpf")}
+                    {...register("cpf", alunoValidator.cpf)}
                   />
+                  {errors.cpf && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.cpf.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="matricula">
@@ -69,10 +82,16 @@ const form = () => {
                     <strong>Matrícula: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.matricula}
                     type="text"
                     placeholder="Insira a matrícula"
-                    {...register("matricula")}
+                    {...register("matricula", alunoValidator.matricula)}
                   />
+                  {errors.matricula && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.matricula.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="email">
@@ -80,10 +99,16 @@ const form = () => {
                     <strong>E-mail: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.email}
                     type="text"
                     placeholder="Insira o e-mail"
-                    {...register("email")}
+                    {...register("email", alunoValidator.email)}
                   />
+                  {errors.email && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.email.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="telefone">
@@ -91,10 +116,16 @@ const form = () => {
                     <strong>Telefone: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.telefone}
                     type="text"
                     placeholder="Insira o telefone"
-                    {...register("telefone")}
+                    {...register("telefone", alunoValidator.telefone)}
                   />
+                  {errors.telefone && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.telefone.message}
+                    </span>
+                  )}
                 </Form.Group>
                 </Col>
                 
@@ -104,10 +135,16 @@ const form = () => {
                     <strong>CEP: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.cep}
                     type="text"
                     placeholder="Insira o CEP"
-                    {...register("cep")}
+                    {...register("cep", alunoValidator.cep)}
                     />
+                    {errors.cep && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.cep.message}
+                    </span>
+                  )}
                 </Form.Group>
                 
                 <Form.Group className="mb-3 text-white" controlId="logradouro">
@@ -115,10 +152,16 @@ const form = () => {
                     <strong>Logradouro: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.logradouro}
                     type="text"
                     placeholder="Insira o logradouro"
-                    {...register("logradouro")}
+                    {...register("logradouro", alunoValidator.logradouro)}
                   />
+                  {errors.logradouro && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.logradouro.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="complemento">
@@ -126,10 +169,16 @@ const form = () => {
                     <strong>Complemento: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.complemento}
                     type="text"
                     placeholder="Insira o complemento"
-                    {...register("complemento")}
+                    {...register("complemento", alunoValidator.complemento)}
                   />
+                  {errors.complemento && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.complemento.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="numero">
@@ -137,10 +186,16 @@ const form = () => {
                     <strong>Número: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.numero}
                     type="text"
                     placeholder="Insira o número"
-                    {...register("numero")}
+                    {...register("numero", alunoValidator.numero)}
                   />
+                  {errors.numero && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.numero.message}
+                    </span>
+                  )}
                 </Form.Group>
 
                 <Form.Group className="mb-3 text-white" controlId="bairro">
@@ -148,10 +203,16 @@ const form = () => {
                     <strong>Bairro: </strong>
                   </Form.Label>
                   <Form.Control
+                    isInvalid={errors.bairro}
                     type="text"
                     placeholder="Insira o bairro"
-                    {...register("bairro")}
+                    {...register("bairro", alunoValidator.bairro)}
                   />
+                  {errors.bairro && (
+                    <span className="error-message bg-primary text-white">
+                      {errors.bairro.message}
+                    </span>
+                  )}
                 </Form.Group>
               </Col>
 

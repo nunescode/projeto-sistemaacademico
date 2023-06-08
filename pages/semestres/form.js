@@ -1,5 +1,6 @@
 import React from "react";
 import Pagina from "@/components/Pagina";
+import semestreValidator from "@/validators/semestreValidator";
 
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
@@ -27,14 +28,18 @@ const form = () => {
     <div className={styles.cover}>
       <Pagina titulo="Semestres">
         <Form>
-          <Form.Group className="mb-3 text-white" controlId="semestre">
+          <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Semestre: </strong></Form.Label>
             <Form.Control
               type="text"
               placeholder="Insira o período:"
-              {...register("semestre", {required: true})}
+              {...register("nome", semestreValidator.nome)}
             />
-            {errors.semestre && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
+            {errors.nome && (
+            <span className="error-message bg-primary text-white">
+              {errors.nome.message}
+            </span>
+            )}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="datai">
@@ -42,9 +47,13 @@ const form = () => {
             <Form.Control
               type="date"
               placeholder="Insira a data de início:"
-              {...register("datai", {required: true})}
+              {...register("datai", )}
             />
-            {errors.datai && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
+            {errors.datainicio && (
+            <span className="error-message bg-primary text-white">
+              {errors.datainicio.message}
+            </span>
+            )}
           </Form.Group>
 
           <Form.Group className="mb-3 text-white" controlId="dataf">
@@ -52,9 +61,13 @@ const form = () => {
             <Form.Control
               type="date"
               placeholder="Insira a data de conclusão:"
-              {...register("dataf", {required: true})}
+              {...register("dataf", semestreValidator.datafim)}
             />
-            {errors.dataf && <span className="error-message bg-danger text-white">Campo obrigatório!</span>}
+            {errors.datafim && (
+              <span className="error-message bg-danger text-white">
+                {errors.datafim.message}
+            </span>
+            )}
           </Form.Group>
 
           <div className="text-center">
