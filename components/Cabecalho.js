@@ -24,7 +24,7 @@ const Cabecalho = () => {
             <Nav.Link className={styles.navlink} href="/professores">Professores</Nav.Link>
             <Nav.Link className={styles.navlink} href="/salas">Salas</Nav.Link>
             <Nav.Link className={styles.navlink} href="/semestres">Semestres</Nav.Link>
-              <Link href="/perfil" className={styles.link}>
+              <Link href="/login" className={styles.link}>
                 <CgProfile className={styles.prof}/>
               </Link>
             </Nav>

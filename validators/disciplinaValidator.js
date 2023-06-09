@@ -7,11 +7,11 @@ const disciplinaValidator = {
       message: "Mínimo: 4 caracteres!",
     },
     maxLength: {
-      value: 50,
-      message: "Máximo: 50 caracteres!",
+      value: 51,
+      message: "Máximo: 51 caracteres!",
     },
     pattern: {
-      value: /^[A-Za-z]+$/,
+      value: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
       message: "Digite somente letras!",
     },
   },
@@ -27,7 +27,7 @@ const disciplinaValidator = {
       message: "Máximo: 40 caracteres!",
     },
     pattern: {
-      value: /^[A-Za-z]+$/,
+      value: /^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$/,
       message: "Digite somente letras!",
     },
   },
