@@ -11,11 +11,12 @@ import styles from "../../styles/index.module.css"
 import Link from "next/link";
 import axios from "axios";
 import professorValidator from "@/validators/professorValidator";
+import { mask } from "remask";
 
 const form = () => {
   const {
     register,
-    handleSubmit,
+    handleSubmit, setValue,
     formState: { errors },
   } = useForm();
   const { push } = useRouter();
@@ -23,6 +24,13 @@ const form = () => {
   function salvar(dados) {
     axios.post("/api/professores", dados);
     push("/professores");
+  }
+
+  function handleChange(event) {
+    const name = event.target.name;
+    const valor = event.target.value;
+    const mascara = event.target.getAttribute("mask");
+    setValue(name, mask(valor, mascara));
   }
 
   return (
@@ -50,10 +58,12 @@ const form = () => {
                 <Form.Group className="mb-3 text-white" controlId="cpf">
                   <Form.Label><strong>CPF: </strong></Form.Label>
                   <Form.Control
+                    mask="999.999.999-99"
                     isInvalid={errors.cpf}
                     type="text"
                     placeholder="Insira o CPF:"
                     {...register("cpf", professorValidator.cpf)}
+                    onChange={handleChange}
                   />
                   {errors.cpf && (
                     <span className="error-message bg-primary text-white">
@@ -80,10 +90,12 @@ const form = () => {
                 <Form.Group className="mb-3 text-white" controlId="salario">
                   <Form.Label><strong>Salário: </strong></Form.Label>
                   <Form.Control
+                    mask="9999.99"
                     isInvalid={errors.salario}
                     type="text"
                     placeholder="Insira o salário:"
                     {...register("salario", professorValidator.salario)}
+                    onChange={handleChange}
                   />
                   {errors.salario && (
                     <span className="error-message bg-primary text-white">
@@ -110,10 +122,12 @@ const form = () => {
                 <Form.Group className="mb-3 text-white" controlId="telefone">
                   <Form.Label><strong>Telefone: </strong></Form.Label>
                   <Form.Control
+                    mask="(99) 99999-9999"
                     isInvalid={errors.telefone}
                     type="text"
                     placeholder="Insira o telefone:"
                     {...register("telefone", professorValidator.telefone)}
+                    onChange={handleChange}
                   />
                   {errors.telefone && (
                     <span className="error-message bg-primary text-white">
@@ -127,10 +141,12 @@ const form = () => {
                 <Form.Group className="mb-3 text-white" controlId="cep">
                   <Form.Label><strong>CEP: </strong></Form.Label>
                   <Form.Control
+                    mask="99999-999"
                     isInvalid={errors.cep}
                     type="text"
                     placeholder="Insira o CEP:"
                     {...register("cep", professorValidator.cep)}
+                    onChange={handleChange}
                   />
                   {errors.cep && (
                     <span className="error-message bg-primary text-white">

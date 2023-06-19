@@ -32,7 +32,7 @@ const form = () => {
           <Form.Group className="mb-3 text-white" controlId="nome">
             <Form.Label><strong>Nome: </strong></Form.Label>
             <Form.Control
-              isInvalid={errors.nome}
+              isInvalid={errors.nome}   
               type="text"
               placeholder="Insira o nome da disciplina:"
               {...register("nome", disciplinaValidator.nome)}

@@ -47,7 +47,7 @@ const form = () => {
             <Form.Control
               type="date"
               placeholder="Insira a data de início:"
-              {...register("datai", )}
+              {...register("datai", semestreValidator.datainicio )}
             />
             {errors.datainicio && (
             <span className="error-message bg-primary text-white">

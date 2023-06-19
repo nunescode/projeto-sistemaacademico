@@ -1,29 +1,39 @@
 import React from "react";
 import Pagina from "@/components/Pagina";
+import alunoValidator from "@/validators/alunoValidator";
+import styles from "../../styles/index.module.css";
 
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 
+import Link from "next/link";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { BiSend, BiArrowBack } from "react-icons/bi";
 
-import styles from "../../styles/index.module.css";
 import axios from "axios";
-import Link from "next/link";
-import alunoValidator from "@/validators/alunoValidator";
+import { mask } from "remask";
 
 const form = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm();
+
   const { push } = useRouter();
 
   function salvar(dados) {
     console.log(dados);
     axios.post("/api/alunos", dados);
     push("/alunos");
+  }
+
+  function handleChange(event) {
+    const name = event.target.name;
+    const valor = event.target.value;
+    const mascara = event.target.getAttribute("mask");
+    setValue(name, mask(valor, mascara));
   }
 
   return (
@@ -55,10 +65,13 @@ const form = () => {
                     <strong>CPF: </strong>
                   </Form.Label>
                   <Form.Control
-                    isInvalid={errors.cpf}
-                    type="text"
                     placeholder="Insira o CPF:"
+                    isInvalid={errors.cpf}
+                    mask='999.999.999-99'
+                    maxLength={14}
+                    type="text"
                     {...register("cpf", alunoValidator.cpf)}
+                    onChange={handleChange}
                   />
                   {errors.cpf && (
                     <span className="error-message bg-primary text-white">
@@ -106,10 +119,12 @@ const form = () => {
                     <strong>Telefone: </strong>
                   </Form.Label>
                   <Form.Control
+                    placeholder="Insira o telefone:"
+                    mask='(99) 99999-9999'
                     isInvalid={errors.telefone}
                     type="text"
-                    placeholder="Insira o telefone:"
                     {...register("telefone", alunoValidator.telefone)}
+                    onChange={handleChange}
                   />
                   {errors.telefone && (
                     <span className="error-message bg-primary text-white">
@@ -124,10 +139,13 @@ const form = () => {
                     <strong>CEP: </strong>
                   </Form.Label>
                   <Form.Control
-                    isInvalid={errors.cep}
-                    type="text"
                     placeholder="Insira o CEP:"
+                    isInvalid={errors.cep}
+                    mask='99999-999'
+                    maxLength={9}
+                    type="text"
                     {...register("cep", alunoValidator.cep)}
+                    onChange={handleChange}
                   />
                   {errors.cep && (
                     <span className="error-message bg-primary text-white">

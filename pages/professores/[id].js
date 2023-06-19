@@ -12,6 +12,7 @@ import { BiSend, BiArrowBack } from "react-icons/bi";
 
 import axios from "axios";
 import Link from "next/link";
+import { mask } from "remask";
 
 const form = () => {
   const { push, query } = useRouter();
@@ -34,6 +35,13 @@ const form = () => {
   function salvar(dados) {
     axios.put("/api/professores/" + query.id, dados);
     push("/professores");
+  }
+
+  function handleChange(event) {
+    const name = event.target.name;
+    const valor = event.target.value;
+    const mascara = event.target.getAttribute("mask");
+    setValue(name, mask(valor, mascara));
   }
 
   return (
@@ -65,10 +73,12 @@ const form = () => {
                     <strong>CPF: </strong>
                   </Form.Label>
                   <Form.Control
+                    mask="999.999.999-99"
                     isInvalid={errors.cpf}
                     type="text"
                     placeholder="Insira o CPF"
                     {...register("cpf", professorValidator.cpf)}
+                    onChange={handleChange}
                   />
                   {errors.cpf && (
                     <span className="error-message bg-primary text-white">
@@ -94,10 +104,12 @@ const form = () => {
                     <strong>Salário: </strong>
                   </Form.Label>
                   <Form.Control
+                    mask="9999.99"
                     isInvalid={errors.salario}
                     type="text"
                     placeholder="Insira o salário"
                     {...register("salario", professorValidator.salario)}
+                    onChange={handleChange}
                   />
                   {errors.salario && (
                     <span className="error-message bg-primary text-white">
@@ -127,10 +139,12 @@ const form = () => {
                     <strong>Telefone: </strong>
                   </Form.Label>
                   <Form.Control
+                    mask="(99) 99999-9999"
                     isInvalid={errors.telefone}
                     type="text"
                     placeholder="Insira o telefone"
                     {...register("telefone", professorValidator.telefone)}
+                    onChange={handleChange}
                   />
                   {errors.telefone && (
                     <span className="error-message bg-primary text-white">
@@ -145,10 +159,12 @@ const form = () => {
                     <strong>CEP: </strong>
                   </Form.Label>
                   <Form.Control
+                    mask="99999-999"
                     isInvalid={errors.cep}
                     type="text"
                     placeholder="Insira o CEP"
                     {...register("cep", professorValidator.cep)}
+                    onChange={handleChange}
                   />
                   {errors.cep && (
                     <span className="error-message bg-primary text-white">

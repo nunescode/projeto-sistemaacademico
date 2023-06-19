@@ -19,8 +19,8 @@ const alunoValidator = {
   cpf: {
     required: "Campo obrigatório!",
     maxLength: {
-      value: 11,
-      message: "Máximo: 11 caracteres!",
+      value: 14,
+      message: "Máximo: 14 caracteres!",
     },
     pattern: {
       value: /[0-9]+$/,
@@ -56,8 +56,8 @@ const alunoValidator = {
 
   telefone: {
     maxLength: {
-      value: 15,
-      message: "Máximo: 15 caracteres!",
+      value: 20,
+      message: "Máximo: 20 caracteres!",
     },
     pattern: {
       value: /[0-9]+$/,
@@ -71,8 +71,8 @@ const alunoValidator = {
       message: "Mínimo: 5 caracteres!",
     },
     maxLength: {
-      value: 11,
-      message: "Máximo: 11 caracteres!",
+      value: 12,
+      message: "Máximo: 12 caracteres!",
     },
     pattern: {
       value: /[0-9]+$/,
